@@ -1,14 +1,21 @@
 import slugify from "@sindresorhus/slugify";
 import { z } from "zod";
 
-const availabilityEnum = z.enum(["full", "partial", "none"]);
-const creatorEnum = z.enum(["Google", "Black Forest Labs", "fal"]);
-const modalityEnum = z.enum(["text", "image", "video", "audio", "3d", "pdf"]);
-const accessTypeEnum = z.enum(["api", "web app", "discord", "local"]);
-const capabilityTypeEnum = z.enum([
+const AvailabilityEnum = z.enum(["full", "partial", "none"]);
+const EditionEnum = z.enum(["nano", "standard", "max"]);
+const CreatorEnum = z.enum([
+  "Google DeepMind",
+  "Black Forest Labs",
+  "fal",
+  "ByteDance Seed",
+]);
+const ModalityEnum = z.enum(["text", "image", "video", "audio", "3d", "pdf"]);
+const AccessTypeEnum = z.enum(["api", "web app", "discord", "local"]);
+const CapabilityTypeEnum = z.enum([
   "image reference",
   "video reference",
-  "editing",
+  "image editing",
+  "video editing",
   "first frame animation",
   "first-last frame interpolation",
   "audio generation from video",
@@ -22,9 +29,11 @@ const capabilityTypeEnum = z.enum([
   "true transparency",
   "multi-image sequence generation",
   "negative prompt",
-  "color reference",
-  "gps coordinates reference",
-  "style transfering",
+  "color codes understanding",
+  "gps coordinates understanding",
+  "style reference",
+  "content reference",
+  "character reference",
   "prompt rewriter",
   "video extension",
   "safety checker",
@@ -33,22 +42,28 @@ const capabilityTypeEnum = z.enum([
   "streaming results",
   "lora",
 ]);
-// format: <creator>/<name>
-const modelIdString = z.stringFormat(
-  "model id",
-  /^[a-z0-9._-]+\/[a-z0-9._-]+$/
-);
+// format: <creator>.<name>
+const ModelIdString = z.stringFormat("model id", /^[a-z0-9_-]+\.[a-z0-9._-]+$/);
 
-function createModelId(
-  creator: string,
-  name: string
-): z.output<typeof modelIdString> {
-  return `${slugify(creator)}/${slugify(name)}`;
+export function getCreatorId(creator: string) {
+  return slugify(creator, { preserveCharacters: ["_"], decamelize: false });
+}
+
+export function getModelId(creator: string, name: string) {
+  return [
+    getCreatorId(creator),
+    slugify(name, { preserveCharacters: [".", "_"], decamelize: false }),
+  ].join(".");
 }
 
 export const ModelCoreSchema = z
   .object({
-    creator: creatorEnum,
+    id: ModelIdString.default(""), // see overwrite below
+
+    "main modality": z.array(ModalityEnum),
+    edition: EditionEnum,
+
+    creator: CreatorEnum,
     name: z.string(),
     nickname: z.string().optional(),
     family: z.string(),
@@ -59,33 +74,30 @@ export const ModelCoreSchema = z
     "release date": z.coerce.date(),
     "is preview release": z.stringbool().or(z.boolean()),
 
-    "base model": modelIdString.optional(),
-    "new version": modelIdString.optional(),
-    id: modelIdString.optional(),
+    "base model": ModelIdString.optional(),
+    "new version": ModelIdString.optional(),
   })
   .overwrite((data) => ({
     ...data,
-    id: createModelId(data.creator, data.name),
+    id: getModelId(data.creator, data.name),
   }));
 
 export const ModelExtendedSchema = z.object({
-  "access type": z.array(accessTypeEnum),
-  capabilities: z.array(capabilityTypeEnum),
-  "nsfw level": availabilityEnum,
-  "knowledge cutoff": z.date(),
-  "modalities (input)": z.array(modalityEnum),
-  "modalities (output)": z.array(modalityEnum),
+  "access type": z.array(AccessTypeEnum),
+  capabilities: z.array(CapabilityTypeEnum),
+  "nsfw level": AvailabilityEnum,
+  "knowledge cutoff": z.coerce.date(),
 });
 
 export const ModelLicenseSchema = z.object({
   license: z.string(),
   "commercial use allowed": z.stringbool().or(z.boolean()),
 
-  "weights available": availabilityEnum,
-  "inference code available": availabilityEnum,
-  "training code available": availabilityEnum,
-  "training data available": availabilityEnum,
-  "architecture disclosed": availabilityEnum,
+  "weights available": AvailabilityEnum,
+  "inference code available": AvailabilityEnum,
+  "training code available": AvailabilityEnum,
+  "training data available": AvailabilityEnum,
+  "architecture disclosed": AvailabilityEnum,
 });
 
 export const ModelLinksSchema = z.object({
@@ -105,6 +117,9 @@ export const ModelDescriptionSchema = z.object({
 });
 
 export const ModelIOSchema = z.object({
+  "modalities (input)": z.array(ModalityEnum),
+  "modalities (output)": z.array(ModalityEnum),
+
   "min tokens (input)": z.number(),
   "max tokens (input)": z.number(),
   "min tokens (output)": z.number(),

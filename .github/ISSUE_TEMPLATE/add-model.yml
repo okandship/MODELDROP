@@ -1,0 +1,156 @@
+name: add model
+description: submit a new model entry
+labels: ["model-entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # like this
+
+        | | |
+        | --- | --- |
+        | `main modality` | image |
+        | `edition` | standard |
+        | `creator` | Google DeepMind |
+        | `name` | Gemini 2.5 Flash Image |
+        | `nickname` | Nano Banana |
+        | `family` | Gemini |
+        | `version` | 2.5 |
+        | `variant` | Flash<br>Image |
+        | `aka` | _No response_ |
+        | `release date` | 2025-10-02 |
+        | `is preview release` | no |
+        | `base model` | _No response_ |
+
+        # your turn
+
+  # "main modality": z.array(ModalityEnum)
+  - type: dropdown
+    id: main-modality
+    attributes:
+      label: main modality
+      description: allows multiple
+      options:
+        - image
+        - video
+        - audio
+        - 3d
+      multiple: true
+    validations:
+      required: true
+
+  # "edition": EditionEnum
+  - type: dropdown
+    id: edition
+    attributes:
+      label: edition
+      options:
+        - standard
+        - nano
+        - max
+    validations:
+      required: true
+
+  # creator: CreatorEnum
+  - type: dropdown
+    id: creator
+    attributes:
+      label: creator
+      options:
+        - Google DeepMind
+        - Black Forest Labs
+        - fal
+        - ByteDance Seed
+    validations:
+      required: true
+
+  # name: z.string()
+  - type: input
+    id: name
+    attributes:
+      label: name
+      description: full model name
+      placeholder: e.g. Gemini 2.5 Flash Image
+    validations:
+      required: true
+
+  # nickname: z.string().optional()
+  - type: input
+    id: nickname
+    attributes:
+      label: nickname
+      description: another name the model is known as
+      placeholder: e.g. Nano Banana
+    validations:
+      required: false
+
+  # family: z.string()
+  - type: input
+    id: family
+    attributes:
+      label: family
+      placeholder: e.g. Gemini
+    validations:
+      required: true
+
+  # version: z.string().optional()
+  - type: input
+    id: version
+    attributes:
+      label: version
+      placeholder: e.g. 2.5
+    validations:
+      required: false
+
+  # variant: z.array(z.string()).optional()
+  - type: textarea
+    id: variant
+    attributes:
+      label: variant
+      description: one per line
+      placeholder: |
+        e.g. Flash
+        Image
+    validations:
+      required: false
+
+  # aka: z.array(z.string()).optional()
+  - type: textarea
+    id: aka
+    attributes:
+      label: aka
+      description: list of additional names the model is known for, one per line
+    validations:
+      required: false
+
+  # "release date": z.coerce.date()
+  - type: input
+    id: release-date
+    attributes:
+      label: release date
+      description: official date of release in YYYY-MM-DD format
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+
+  # "is preview release": z.stringbool().or(z.boolean())
+  - type: dropdown
+    id: is-preview-release
+    attributes:
+      label: is preview release
+      description: is this a beta or preview version?
+      options:
+        - "no"
+        - "yes"
+    validations:
+      required: true
+
+  # "base model": ModelIdString.optional()
+  - type: input
+    id: base-model
+    attributes:
+      label: base model
+      description: modeldrop model id of the base model
+      placeholder: e.g. black-forest-labs/flux-2-dev
+    validations:
+      required: false

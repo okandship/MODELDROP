@@ -1,0 +1,108 @@
+name: add model
+
+on:
+  issues:
+    types: [closed]
+
+jobs:
+  add-model:
+    if: "github.event.issue.state_reason == 'completed' && contains(github.event.issue.labels.*.name, 'model-entry')"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+
+      - name: check permissions
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { data: perm } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: context.actor
+            });
+
+            if (!['admin', 'maintainer', 'write'].includes(perm.permission)) {
+              core.setFailed(`user @${context.actor} is not authorized to approve models`);
+            }
+
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install dependencies
+        run: bun install
+
+      - name: generate model file
+        id: process
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: bun run scripts/add-model.ts
+
+      - name: check for duplicate pr
+        uses: actions/github-script@v8
+        env:
+          BRANCH_NAME: ${{ steps.process.outputs.branch-name }}
+        with:
+          script: |
+            const branchName = process.env.BRANCH_NAME;
+            const { data: existingPRs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              head: `${context.repo.owner}:${branchName}`
+            });
+
+            if (existingPRs.length) {
+              const pr = existingPRs[0];
+              core.setFailed(`duplicate detected! a pr for this model already exists (pr #${pr.number} is ${pr.state})`);
+            }
+
+      - name: create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "add model ${{ steps.process.outputs.model-name }}"
+          title: "add model `${{ steps.process.outputs.model-name }}`"
+          branch: ${{ steps.process.outputs.branch-name }}
+          base: main
+          delete-branch: true
+          body: |
+            ### 🍱 modeldrop!
+
+            - **id** `${{ steps.process.outputs.model-id }}`
+            - **name** ${{ steps.process.outputs.model-name }}
+            - **submitted by** @${{ github.event.issue.user.login }}
+
+      - name: comment success
+        if: success()
+        uses: actions/github-script@v8
+        env:
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `🧞 **modeldrop spawned!**\n\npr created: ${process.env.PR_URL}`
+            })
+
+      - name: comment failure
+        if: failure()
+        uses: actions/github-script@v8
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `🍂 **modeldrop failed**\n\ncheck the logs: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            })

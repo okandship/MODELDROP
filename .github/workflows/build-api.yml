@@ -1,0 +1,49 @@
+name: build api
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "models/**" # only run if data changes
+      - "scripts/**" # or if the build script changes
+
+  # allow running manually from the actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-api:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install dependencies
+        run: bun install
+
+      - name: build api
+        run: bun run scripts/build-api.ts
+
+      # the script output is in 'public/api/models.json'
+      # we upload the whole 'public' folder to pages
+      - name: upload pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "public"
+
+      - name: deploy to github pages
+        id: deployment
+        uses: actions/deploy-pages@v4
