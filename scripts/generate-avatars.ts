@@ -114,6 +114,12 @@ async function getCreatorAvatarIdentity(
     }),
     system,
     prompt,
+    temperature: 1.5,
+    providerOptions: {
+      openai: {
+        reasoningEffort: "none",
+      },
+    },
   });
 
   await cache.write(
@@ -183,6 +189,12 @@ async function getModelAvatarIdentity(
     }),
     system,
     prompt,
+    temperature: 1.5,
+    providerOptions: {
+      openai: {
+        reasoningEffort: "none",
+      },
+    },
   });
 
   await cache.write(
@@ -237,6 +249,7 @@ async function createModelAvatar(
   modelId: string,
   monster: string,
   item: string,
+  material: string,
   falTextToImageEndpoint: string | undefined
 ): Promise<string | undefined> {
   const cache = Bun.file(`models avatars/${modelId}.md`);
@@ -262,16 +275,19 @@ async function createModelAvatar(
     falTextToImageEndpoint ?? requireEnv("AVATAR_FALLBACK_IMAGE_MODEL_FAL");
 
   const promptTemplate = await readPrompt("create-model-avatar");
-  const prompt = interpolatePrompt(promptTemplate, { monster, item });
+  const prompt = interpolatePrompt(promptTemplate, { monster, item, material });
 
   console.log(`Generating avatar for ${modelId} using ${imageModelId}`);
 
   const { image } = await generateImage({
     model: fal.image(imageModelId),
     prompt,
-    size: "1024x1024",
     providerOptions: {
       fal: {
+        image_size: {
+          width: 1024,
+          height: 1024,
+        },
         syncMode: true,
         enableSafetyChecker: false,
         outputFormat: "png",
@@ -305,7 +321,6 @@ async function restyleModelAvatar(
   avatarRawUrl: string,
   monster: string,
   item: string,
-  material: string,
   palette: string[]
 ): Promise<string | undefined> {
   const cache = Bun.file(`models avatars/${modelId}.md`);
@@ -332,7 +347,6 @@ async function restyleModelAvatar(
   const prompt = interpolatePrompt(promptTemplate, {
     monster,
     item,
-    material,
     palette: palette.join(", "),
   });
 
@@ -341,10 +355,15 @@ async function restyleModelAvatar(
   const { image } = await generateImage({
     model: fal.image(imageModelId),
     prompt,
-    size: "1024x1024",
     providerOptions: {
       fal: {
-        imageUrls: [avatarRawUrl, styleUrl],
+        image_urls: [avatarRawUrl, styleUrl].map(
+          (url) => `${url}?v=${Date.now()}`
+        ),
+        image_size: {
+          width: 1024,
+          height: 1024,
+        },
         syncMode: true,
         enableSafetyChecker: false,
         outputFormat: "png",
@@ -380,7 +399,7 @@ async function restyleModelAvatar(
 
 const models: ModelOutput[] = await getApiData("models");
 
-for await (const model of models) {
+for (const model of models) {
   const modality = pickPrimaryModality(model["main modality"]);
   if (!(modality && ["image", "video", "audio"].includes(modality))) {
     console.warn(
@@ -390,6 +409,7 @@ for await (const model of models) {
   }
 
   const creatorIdentity = await getCreatorAvatarIdentity(model.creator);
+
   const modelIdentity = await getModelAvatarIdentity(
     model.id,
     model.nickname ?? model.name,
@@ -403,6 +423,7 @@ for await (const model of models) {
     model.id,
     creatorIdentity.monster,
     modelIdentity.item,
+    modelIdentity.material,
     falEndpoint
   );
 
@@ -416,7 +437,6 @@ for await (const model of models) {
     avatarRawUrl,
     creatorIdentity.monster,
     modelIdentity.item,
-    modelIdentity.material,
     creatorIdentity.palette
   );
 

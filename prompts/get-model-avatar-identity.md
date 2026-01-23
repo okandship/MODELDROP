@@ -36,7 +36,7 @@ Select an object that represents the *function* of the [model modality] and the 
     * *Large:* War Horn, Great Gong (Carried), Thunder Drum, etc.
 
 #### B. Material Selector
-Select a texture/element that represents the *power level* of the [model size].
+Select a texture/element that represents the *power level* of the [model size]. Max 2 words.
 
 ### 4. Output Format
 Return ONLY the JSON object.

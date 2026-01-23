@@ -1,1 +1,1 @@
-{monster} holding {item}
+{material} {monster} holding {item}
