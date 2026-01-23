@@ -40,6 +40,10 @@ See `.env.example` for required variables:
 - `AVATAR_TEXT_MODEL` - Model ID for generating avatar metadata
 - `S3_PUBLIC_BASE_URL` - Base URL for S3-hosted assets
 
+## Runtime Preferences
+
+- **Prefer Bun Built-ins**: When functionality is available in Bun's standard library (e.g., S3 API, SQLite, file system operations), prefer using Bun's native APIs over external packages. Bun provides optimized, battle-tested implementations that are faster and reduce dependencies.
+
 ---
 
 # Ultracite Code Standards

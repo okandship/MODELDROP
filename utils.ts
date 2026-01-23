@@ -11,7 +11,7 @@ export function requireEnv(name: string) {
 export async function getApiData(endpoint: string) {
   const base = requireEnv("MD_API_BASE_URL_OR_PATH");
   const isLocalPath = !base.startsWith("https://");
-  const full = `${base}${endpoint}.json`;
+  const full = `${base}/${endpoint}.json`;
 
   if (isLocalPath) {
     const file = Bun.file(full);
