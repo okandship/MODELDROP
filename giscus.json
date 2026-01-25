@@ -1,0 +1,8 @@
+{
+  "origins": [
+    "https://modeldrop.fyi"
+  ],
+  "originsRegex": [
+    "http://localhost:[0-9]+"
+  ]
+}
