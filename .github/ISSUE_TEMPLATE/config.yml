@@ -5,5 +5,7 @@ contact_links:
     about: (preferred)
   - name: dm on x
     url: https://x.com/okandship
+    about: @okandship
   - name: email
     url: mailto:okandship@gmail.com
+    about: okandship@gmail.com
