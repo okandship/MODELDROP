@@ -3,6 +3,9 @@ contact_links:
   - name: ask in discussions
     url: https://github.com/okandship/modeldrop/discussions
     about: (preferred)
-  - name: DM on X
+  - name: dm on x
     url: https://x.com/okandship
-    about: @okandship
+    about: okandship
+  - name: email
+    url: https://mail.google.com/mail/?to=okandship@gmail.com&tf=cm
+    about: okandship@gmail.com
