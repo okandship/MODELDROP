@@ -1,4 +1,4 @@
-# modeldrop-data
+# MODELDROP
 
 Data repository for AI model metadata, provider API endpoints, and avatar generation.
 
