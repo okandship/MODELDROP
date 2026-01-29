@@ -2,7 +2,7 @@
 
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
-Open data repository for AI model metadata, provider API endpoints, and avatar generation.
+open data repository for generative media AI models metadata + providers API endpoints.
 
 ## What's in here
 
