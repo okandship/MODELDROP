@@ -1,8 +1,10 @@
-# MODELDROP
-
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
-open data repository for generative media AI models metadata + providers API endpoints.
+# MODELDROP
+
+<img width="1200" height="630" alt="opengraph-image" src="https://github.com/user-attachments/assets/011e4619-6dd6-4d91-b190-b01e5d400f17" />
+
+> open data repository for generative media AI models metadata + providers API endpoints.
 
 ## What's in here
 
