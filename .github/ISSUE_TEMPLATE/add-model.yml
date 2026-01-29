@@ -10,7 +10,6 @@ body:
         | | |
         | --- | --- |
         | `main modality` | image |
-        | `edition` | standard |
         | `creator` | Google DeepMind |
         | `name` | Gemini 2.5 Flash Image |
         | `nickname` | Nano Banana |
@@ -18,6 +17,7 @@ body:
         | `version` | 2.5 |
         | `variant` | Flash<br>Image |
         | `aka` | _No response_ |
+        | `edition` | standard |
         | `release date` | 2025-10-02 |
         | `is preview release` | no |
         | `base model` | _No response_ |
@@ -36,18 +36,6 @@ body:
         - audio
         - 3d
       multiple: true
-    validations:
-      required: true
-
-  # "edition": EditionEnum
-  - type: dropdown
-    id: edition
-    attributes:
-      label: edition
-      options:
-        - standard
-        - nano
-        - max
     validations:
       required: true
 
@@ -122,6 +110,18 @@ body:
       description: list of additional names the model is known for, one per line
     validations:
       required: false
+
+  # "edition": EditionEnum
+  - type: dropdown
+    id: edition
+    attributes:
+      label: edition
+      options:
+        - standard
+        - nano
+        - max
+    validations:
+      required: true
 
   # "release date": z.coerce.date()
   - type: input
