@@ -8,20 +8,20 @@ open data repository for generative media AI models metadata + providers API end
 
 ```
 models/                      # Model definitions (markdown with structured data)
-avatars/                     # Generated avatar metadata
-providers api endpoints/     # API endpoint configs per model per provider
+avatars/                     # Generated models avatars metadata (used by modeldrop.fyi)
+providers api endpoints/     # API endpoints names per model per provider
 ```
 
 ## Model ID format
 
-Model IDs use the format `<creator-slug>.<model-slug>`. Generate one with:
+Models IDs use the format `<creator-slug>.<model-slug>`. Generate one with:
 
 ```bash
 bun run scripts/get-model-id.ts "Google DeepMind" "Gemini 2.5 Flash Image"
 # google-deepmind.gemini-2.5-flash-image
 ```
 
-Each model file is markdown with structured key-value data, parsed using [@okandship/h3kv](https://jsr.io/@okandship/h3kv).
+Each model file is markdown with structured key-value data, parsed using [H3KV](https://github.com/okandship/H3KV).
 
 ## Using the data
 
