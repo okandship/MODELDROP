@@ -10,7 +10,7 @@ The easiest way to add a new model is through the [issue form](https://github.co
 
 If you notice incorrect data or want to suggest improvements:
 
-- Open a [discussion](https://github.com/okandship/modeldrop/discussions)
+- Open a [discussion](https://github.com/okandship/MODELDROP/discussions/categories/%E1%9A%B1meta)
 - Or submit an issue describing the correction
 
 ## Direct contributions
