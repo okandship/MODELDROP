@@ -11,8 +11,12 @@ const ProviderApiEndpointsSchema = z.object({
 });
 type ProviderApiEndpoints = z.output<typeof ProviderApiEndpointsSchema>;
 type ProvidersApiEndpoints = Record<string, ProviderApiEndpoints>;
+const ModelAvatarSchema = z.object({
+  "avatar url": z.string().optional(),
+});
 export type ModelOutput = z.output<typeof ModelCoreSchema> & {
   "providers api endpoints"?: ProvidersApiEndpoints;
+  "avatar generated": boolean;
 };
 
 // async function loadProvider(providerId: string) {
@@ -51,6 +55,20 @@ async function loadProvidersApiEndpoints(
   return Object.keys(providers).length ? providers : undefined;
 }
 
+async function hasGeneratedAvatar(modelId: string): Promise<boolean> {
+  const avatarPath = `models avatars/${modelId}.md`;
+
+  if (!(await exists(avatarPath))) {
+    return false;
+  }
+
+  const content = await Bun.file(avatarPath).text();
+  const avatarData = markdownToDataObject(content, ModelAvatarSchema);
+  const avatarUrl = avatarData["avatar url"];
+
+  return typeof avatarUrl === "string" && avatarUrl.trim().length > 0;
+}
+
 const models: ModelOutput[] = [];
 
 const glob = new Bun.Glob("models/*.md");
@@ -60,7 +78,8 @@ console.log("🔮 scanning model files...");
 for await (const filePath of glob.scan()) {
   const content = await Bun.file(filePath).text();
   const data = markdownToDataObject(content, ModelCoreSchema);
-  const model: ModelOutput = { ...data };
+  const avatarGenerated = await hasGeneratedAvatar(data.id);
+  const model: ModelOutput = { ...data, "avatar generated": avatarGenerated };
 
   const providersApiEndpoints = await loadProvidersApiEndpoints(model.id);
 
