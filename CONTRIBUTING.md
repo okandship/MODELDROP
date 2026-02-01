@@ -4,7 +4,7 @@ Thanks for your interest in contributing to MODELDROP.
 
 ## Adding a model
 
-The easiest way to add a new model is through the [issue form](https://github.com/okandship/MODELDROP/issues/new?template=add-model.yml). Fill out the form and the model will be added automatically.
+The easiest way to add a new model is through the [issue form](https://github.com/okandship/MODELDROP/issues/new?template=add-model.yml). Fill out the form and a curator will review and approve your submission.
 
 ## Suggesting corrections
 
@@ -18,7 +18,7 @@ If you're submitting a PR directly:
 
 1. Model files go in `models/` with the filename format `<creator-slug>.<model-slug>.md`
 2. Provider endpoints go in `providers api endpoints/<model-id>/<provider>.md`
-3. Follow the existing data format (markdown with key-value pairs)
+3. Follow the existing data format (markdown with key-value pairs) - see `schemas/model.ts` for the schema definition
 
 ## Model ID format
 
