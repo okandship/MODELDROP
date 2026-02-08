@@ -14,6 +14,9 @@ type ProvidersApiEndpoints = Record<string, ProviderApiEndpoints>;
 const ModelAvatarSchema = z.object({
   "avatar url": z.string().optional(),
 });
+const TweetsSchema = z.object({
+  tweets: z.array(z.string()),
+});
 export type ModelOutput = z.output<typeof ModelCoreSchema> & {
   "providers api endpoints"?: ProvidersApiEndpoints;
   "avatar generated": boolean;
@@ -69,6 +72,23 @@ async function hasGeneratedAvatar(modelId: string): Promise<boolean> {
   return typeof avatarUrl === "string" && avatarUrl.trim().length > 0;
 }
 
+async function loadTweets(): Promise<Record<string, string[]>> {
+  const tweets: Record<string, string[]> = {};
+  const glob = new Bun.Glob("tweets/*.md");
+
+  for await (const filePath of glob.scan()) {
+    const modelId = path.parse(filePath).name;
+    const content = await Bun.file(filePath).text();
+    const data = markdownToDataObject(content, TweetsSchema);
+
+    if (data.tweets.length) {
+      tweets[modelId] = data.tweets;
+    }
+  }
+
+  return tweets;
+}
+
 const models: ModelOutput[] = [];
 
 const glob = new Bun.Glob("models/*.md");
@@ -114,3 +134,11 @@ const outputPath = `${outputDir}/models.json`;
 await Bun.write(outputPath, JSON.stringify(models, null, 2));
 
 console.log(`👑 api built: ${models.length} models -> ${outputPath}`);
+
+const tweets = await loadTweets();
+const tweetsOutputPath = `${outputDir}/tweets.json`;
+await Bun.write(tweetsOutputPath, JSON.stringify(tweets, null, 2));
+
+console.log(
+  `🐦 tweets built: ${Object.keys(tweets).length} models -> ${tweetsOutputPath}`
+);
