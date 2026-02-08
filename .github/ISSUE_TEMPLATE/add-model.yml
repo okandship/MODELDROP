@@ -123,15 +123,15 @@ body:
     validations:
       required: true
 
-  # "release date": z.coerce.date()
+  # "release date": z.coerce.date().optional()
   - type: input
     id: release-date
     attributes:
       label: release date
-      description: official date of release in YYYY-MM-DD format
+      description: official date of release in YYYY-MM-DD format. leave blank for upcoming/unannounced models
       placeholder: YYYY-MM-DD
     validations:
-      required: true
+      required: false
 
   # "is preview release": z.stringbool().or(z.boolean())
   - type: dropdown

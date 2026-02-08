@@ -90,9 +90,22 @@ for await (const filePath of glob.scan()) {
   models.push(model);
 }
 
-// sort by release date desc
+// sort: upcoming models first (no release date), then by release date desc
 models.sort((a, b) => {
-  return b["release date"].getTime() - a["release date"].getTime();
+  const aDate = a["release date"];
+  const bDate = b["release date"];
+
+  if (!(aDate || bDate)) {
+    return a.name.localeCompare(b.name);
+  }
+  if (!aDate) {
+    return -1;
+  }
+  if (!bDate) {
+    return 1;
+  }
+
+  return bDate.getTime() - aDate.getTime();
 });
 
 const outputDir = "public/api";

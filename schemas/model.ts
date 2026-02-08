@@ -71,7 +71,7 @@ export const ModelCoreSchema = z
     variant: z.array(z.string()).optional(),
     aka: z.array(z.string()).optional(),
 
-    "release date": z.coerce.date(),
+    "release date": z.coerce.date().optional(),
     "is preview release": z.stringbool().or(z.boolean()),
 
     "base model": ModelIdString.optional(),
