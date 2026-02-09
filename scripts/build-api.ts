@@ -142,3 +142,23 @@ await Bun.write(tweetsOutputPath, JSON.stringify(tweets, null, 2));
 console.log(
   `🐦 tweets built: ${Object.keys(tweets).length} models -> ${tweetsOutputPath}`
 );
+
+// build individual description files
+const descriptionsDir = `${outputDir}/descriptions`;
+await mkdir(descriptionsDir, { recursive: true });
+
+const descriptionsGlob = new Bun.Glob("descriptions/*.md");
+let descriptionsCount = 0;
+
+for await (const filePath of descriptionsGlob.scan()) {
+  const modelId = path.parse(filePath).name;
+  const content = await Bun.file(filePath).text();
+  const outputFile = `${descriptionsDir}/${modelId}.json`;
+
+  await Bun.write(outputFile, JSON.stringify({ id: modelId, content }));
+  descriptionsCount++;
+}
+
+console.log(
+  `📝 descriptions built: ${descriptionsCount} models -> ${descriptionsDir}/`
+);
