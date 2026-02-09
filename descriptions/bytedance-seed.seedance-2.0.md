@@ -103,3 +103,8 @@ Yes—maintaining character and brand continuity is a primary advertised strengt
 
 ### Does it support voice guidance and lip sync?
 Audio can guide timing and performance, and the model may attempt lip sync when speech is present.
+
+## Sources
+
+- [Dreamina by CapCut](https://dreamina.capcut.com/tools/seedance-2-0)
+- [Higgsfield](https://higgsfield.ai/seedance/2.0)
