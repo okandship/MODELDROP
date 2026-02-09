@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - "models/**" # only run if data changes
+      - "tweets/**" # or if tweets change
       - "scripts/**" # or if the build script changes
 
   # allow running manually from the actions tab
