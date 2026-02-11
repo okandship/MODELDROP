@@ -4,11 +4,11 @@ Runed Lantern-Projector
 
 ### material
 
-Voidglass
+Starglass
 
 ### reasoning
 
-Grok Imagine Video is a video model, so a vision-and-time flavored tool fits best; at medium size, a lantern is substantial but still wieldable by a Rune-Eyed Homunculus. The runes echo the monster’s occult gaze, while the lantern-projector suggests casting moving scenes. Voidglass conveys mid-tier power with a dark-fantasy, pixel-RPG shimmer suitable to the Grok vibe.
+Grok Imagine Video (video modality) suits a vision/time tool; a medium model maps to a hand-carried lantern rather than a grand staff. The Rune-Eyed Homunculus can wield a compact lantern-projector, casting pixel-like moving illusions, while Starglass signals medium-tier arcane power and retro dark-fantasy shimmer.
 
 ### monster
 
@@ -146,7 +146,7 @@ xai/grok-imagine-image
 
 ### avatar raw prompt
 
-Voidglass Rune-Eyed Homunculus holding Runed Lantern-Projector
+Starglass Rune-Eyed Homunculus holding Runed Lantern-Projector
 
 ### avatar url
 

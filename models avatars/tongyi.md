@@ -1,15 +1,15 @@
 ### monster
 
-Jade Archive Wyrm
+Jade-Scroll Fox Spirit (Huli Jing)
 
 ### palette
 
-- Imperial Jade
+- Jade Green
 - Ink Black
 
 ### reasoning
 
-"Tongyi" evokes unity and shared meaning—like many voices consolidated into one canon. A Jade Archive Wyrm is a learned, hoarding dragon that guards a single, unifying record of knowledge; the palette ties to classical jade scholarship (authority, refinement) and ink-dark secrecy (hidden lore, meticulous scripts).
+Tongyi reads as ‘unified/same intent’ with a crisp, scholarly cadence; it evokes order, coordination, and learned cunning. A Jade-Scroll Fox Spirit fits that vibe: a clever faction-binder that organizes chaos through contracts and enchantments written in inked talismans, with jade signifying harmony and authority and ink-black implying secret rites and strategy.
 
 ### creator id
 

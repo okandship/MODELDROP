@@ -1,14 +1,14 @@
 ### item
 
-Rune-etched Longsword
+Runebound Etching Axe
 
 ### material
 
-Voidsteel
+Void Quartz
 
 ### reasoning
 
-Grok Imagine Image suggests fast, incisive image-making; for a medium image model, a versatile longsword fits the scale and function like a ‘weapon of rendering.’ A Rune-Eyed Homunculus can wield a longsword two-handed, and Voidsteel conveys mid-tier, dark-fantasy power with a retro pixel-art edge.
+Grok Imagine Image is an image model, so a medium weapon tied to carving/creating visuals fits: an etching axe suggests cutting forms into reality like generating images. As a medium item it’s suitably sized for a Rune-Eyed Homunculus to wield two-handed, while runic styling matches its arcane gaze. Void Quartz conveys medium-tier power—dark, prismatic, and pixel-fantasy magical without feeling world-ending.
 
 ### monster
 
@@ -60,7 +60,7 @@ You will receive:
 
 \* \[model size] The size of the AI model (\`small\`, \`medium\`, \`large\`).
 
-\* \[model modality] The modality of the AI model (\`image\`, \`video\`, \`audio\`).
+\* \[model modality] The modality of the AI model (\`image\`, \`video\`, \`audio\`, \`3d\`).
 
 \* \[monster] The creature holding the item (e.g., "Cybernetic Rat", "Forest Giant").
 
@@ -97,6 +97,14 @@ Select an object that represents the \*function\* of the \[model modality] and t
 \* \*Medium:\* Hand Drum, Bell, Lute, etc.
 
 \* \*Large:\* War Horn, Great Gong (Carried), Thunder Drum, etc.
+
+\* \*\*3D (Sculpting/Construction Tools):\*\*
+
+\* \*Small:\* Chisel, Compass, Prism, etc.
+
+\* \*Medium:\* Anvil, Sculptor's Hammer, Astrolabe, etc.
+
+\* \*Large:\* Stone Tablet, Architect's Obelisk, Runic Pillar (Carried), etc.
 
 \#### B. Material Selector
 
@@ -138,7 +146,7 @@ xai/grok-imagine-image
 
 ### avatar raw prompt
 
-Voidsteel Rune-Eyed Homunculus holding Rune-etched Longsword
+Void Quartz Rune-Eyed Homunculus holding Runebound Etching Axe
 
 ### avatar url
 
@@ -154,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Rune-Eyed Homunculus holding Rune-etched Longsword from image 1
+Rune-Eyed Homunculus holding Runebound Etching Axe from image 1
 
 dominant colors: Arcane Black, Ion Blue
 

@@ -1,18 +1,18 @@
 ### item
 
-Runed Warpick
+Ink-Quill Jian
 
 ### material
 
-Starlit Jade
+Void Jade
 
 ### reasoning
 
-Wan 2.6 as a medium image model maps to a mid-weight, detail-focused weapon; a runed warpick fits retro dark-fantasy pixel art and suggests precise ‘pixel-chiseling’ image generation. The Jade Archive Wyrm can easily wield a long hafted pick in its claws, and ‘Starlit Jade’ channels the monster’s archival jade identity while signaling medium-tier power.
+Wan 2.6 as a medium image model suggests a versatile, precise weapon-tool; a jian styled as an ink quill fits image-crafting and the scroll-bound, calligraphic vibe of a Jade-Scroll Huli Jing. Void Jade signals mid-tier mystic power with retro dark-fantasy sheen, matching the fox spirit’s jade arcana without making the material identical to the item.
 
 ### monster
 
-Jade Archive Wyrm
+Jade-Scroll Fox Spirit (Huli Jing)
 
 ### model id
 
@@ -134,7 +134,7 @@ model size: medium
 
 model modality: image
 
-monster: Jade Archive Wyrm
+monster: Jade-Scroll Fox Spirit (Huli Jing)
 
 ### avatar raw url
 
@@ -146,7 +146,7 @@ wan/v2.6/text-to-image
 
 ### avatar raw prompt
 
-Starlit Jade Jade Archive Wyrm holding Runed Warpick
+Void Jade Jade-Scroll Fox Spirit (Huli Jing) holding Ink-Quill Jian
 
 ### avatar url
 
@@ -162,9 +162,9 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Jade Archive Wyrm holding Runed Warpick from image 1
+Jade-Scroll Fox Spirit (Huli Jing) holding Ink-Quill Jian from image 1
 
-dominant colors: Imperial Jade, Ink Black
+dominant colors: Jade Green, Ink Black
 
 using image 2 as the style reference
 

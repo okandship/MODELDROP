@@ -1,6 +1,6 @@
 ### item
 
-Runed Lantern
+Runed Lantern-Projector
 
 ### material
 
@@ -8,7 +8,7 @@ Voidglass
 
 ### reasoning
 
-Kling VIDEO 3.0 is a medium video model, so a vision/time-bearing tool fits best: a runed lantern that can be carried and aimed to 'project' moving scenes. The Echo-Howler Warg can clamp it in its jaws or drag it by a ringed handle while hunting through darkness, and Voidglass signals mid-tier power with a dark-fantasy, pixel-RPG sheen that complements the name Kling.
+Kling VIDEO 3.0 is a medium video model, so a hand-held vision/time tool fits: a lantern-projector that casts moving runes like scenes. The Echo-Howler Warg can carry it in its jaws or strapped to its chest as a hunting lamp, while voidglass signals mid-tier power with dark, flickering lens-like depth suited to retro dark fantasy pixel RPG vibes.
 
 ### monster
 
@@ -146,7 +146,7 @@ fal-ai/kling-image/o3/text-to-image
 
 ### avatar raw prompt
 
-Voidglass Echo-Howler Warg holding Runed Lantern
+Voidglass Echo-Howler Warg holding Runed Lantern-Projector
 
 ### avatar url
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Echo-Howler Warg holding Runed Lantern from image 1
+Echo-Howler Warg holding Runed Lantern-Projector from image 1
 
 dominant colors: Rune-Blue Steel, Frostbone White
 

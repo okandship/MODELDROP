@@ -1,14 +1,14 @@
 ### item
 
-Stormcarved Longsword
+Storm-etched Longsword
 
 ### material
 
-Jade Lightning
+Crackling Jade
 
 ### reasoning
 
-Hunyuan Image 3.0 Instruct is an image-focused model with guided precision, so a medium-scale weapon fits: a longsword symbolizes controlled creation and sharp visual rendering. The Jade Thunder Wyrm can coil and grip a hefty blade, and the material cue “Jade Lightning” ties directly to its emerald, storm-breath fantasy while implying medium-tier power and energized clarity.
+Hunyuan Image 3.0 Instruct is a medium image model, so a versatile mid-tier weapon fits: a longsword symbolizes deliberate, guided image crafting. The Jade Thunder Wyrm can coil around and wield a long blade like a relic fang, while Crackling Jade channels the wyrm’s jade body and lightning theme to convey medium-level power in a retro dark-fantasy pixel RPG style.
 
 ### monster
 
@@ -146,7 +146,7 @@ fal-ai/hunyuan-image/v3/instruct/text-to-image
 
 ### avatar raw prompt
 
-Jade Lightning Jade Thunder Wyrm holding Stormcarved Longsword
+Crackling Jade Jade Thunder Wyrm holding Storm-etched Longsword
 
 ### avatar url
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Jade Thunder Wyrm holding Stormcarved Longsword from image 1
+Jade Thunder Wyrm holding Storm-etched Longsword from image 1
 
 dominant colors: Imperial Jade Green, Storm-Cloud Charcoal
 

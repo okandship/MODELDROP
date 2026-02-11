@@ -1,14 +1,14 @@
 ### item
 
-Runebound Thorn Dagger
+Barbed sketch-dagger
 
 ### material
 
-Nightbloom Amber
+Voidglass
 
 ### reasoning
 
-FLUX.2 \[klein] is a small image model, so a precise, quick weapon fits best: a dagger for fine ‘image-cutting’ detail. The Wyrdwood Witch-Hart can easily wield a thorny ritual blade, matching its haunted woodland vibe. Nightbloom Amber conveys compact-but-potent magic, a high-energy texture that suits a small yet sharp model.
+FLUX.2 \[klein] suggests a compact, nimble image-maker, so a small blade fits the 'small/image' weapon motif. A Wyrdwood Witch-Hart can grip and brandish a dagger-like tool as a sinister drawing implement, matching the retro dark-fantasy vibe. Voidglass conveys small-model potency as sharp, arcane, and high-contrast—like dark pixels captured in glass.
 
 ### monster
 
@@ -146,7 +146,7 @@ fal-ai/flux-2/klein/9b
 
 ### avatar raw prompt
 
-Nightbloom Amber Wyrdwood Witch-Hart holding Runebound Thorn Dagger
+Voidglass Wyrdwood Witch-Hart holding Barbed sketch-dagger
 
 ### avatar url
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Wyrdwood Witch-Hart holding Runebound Thorn Dagger from image 1
+Wyrdwood Witch-Hart holding Barbed sketch-dagger from image 1
 
 dominant colors: Pine-Shadow Black, Blood-Mushroom Crimson
 
