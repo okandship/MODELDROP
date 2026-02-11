@@ -50,6 +50,15 @@ body:
         - fal
         - ByteDance Seed
         - Kling AI
+        - Meshy
+        - Tongyi
+        - Qwen
+        - MiniMax
+        - Vidu
+        - Tencent HY
+        - xAI
+        - Lightricks
+        - PixVerse
     validations:
       required: true
 
