@@ -9,6 +9,15 @@ const CreatorEnum = z.enum([
   "fal",
   "ByteDance Seed",
   "Kling AI",
+  "Meshy",
+  "Tongyi",
+  "Qwen",
+  "MiniMax",
+  "Vidu",
+  "Hunyuan",
+  "xAI",
+  "Lightricks",
+  "PixVerse",
 ]);
 const ModalityEnum = z.enum(["text", "image", "video", "audio", "3d", "pdf"]);
 const AccessTypeEnum = z.enum(["api", "web app", "discord", "local"]);
