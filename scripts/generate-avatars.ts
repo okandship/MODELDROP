@@ -249,6 +249,45 @@ function findFalTextToImageEndpoint(model: ModelOutput) {
   return endpoints["text to image"] ?? endpoints.any;
 }
 
+function findClosestImageEndpoint(
+  model: ModelOutput,
+  allModels: ModelOutput[]
+): string | undefined {
+  const ownEndpoint = findFalTextToImageEndpoint(model);
+  if (ownEndpoint) {
+    return ownEndpoint;
+  }
+
+  const imageModels = allModels.filter(
+    (m) =>
+      m.id !== model.id &&
+      m["main modality"].includes("image") &&
+      findFalTextToImageEndpoint(m)
+  );
+
+  // Priority 1: same creator + same family
+  const sameFamilyMatch = imageModels.find(
+    (m) => m.creator === model.creator && m.family === model.family
+  );
+  if (sameFamilyMatch) {
+    const endpoint = findFalTextToImageEndpoint(sameFamilyMatch);
+    console.log(
+      `🔗 ${model.id}: using sibling image model ${sameFamilyMatch.id}`
+    );
+    return endpoint;
+  }
+
+  // Priority 2: same creator
+  const sameCreatorMatch = imageModels.find((m) => m.creator === model.creator);
+  if (sameCreatorMatch) {
+    const endpoint = findFalTextToImageEndpoint(sameCreatorMatch);
+    console.log(
+      `🔗 ${model.id}: using creator's image model ${sameCreatorMatch.id}`
+    );
+    return endpoint;
+  }
+}
+
 async function createModelAvatar(
   modelId: string,
   monster: string,
@@ -422,7 +461,7 @@ for (const model of models) {
     creatorIdentity.monster
   );
 
-  const falEndpoint = findFalTextToImageEndpoint(model);
+  const falEndpoint = findClosestImageEndpoint(model, models);
   const avatarRawUrl = await createModelAvatar(
     model.id,
     creatorIdentity.monster,
