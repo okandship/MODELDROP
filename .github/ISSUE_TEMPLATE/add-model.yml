@@ -49,6 +49,7 @@ body:
         - Black Forest Labs
         - fal
         - ByteDance Seed
+        - Kling AI
     validations:
       required: true
 
