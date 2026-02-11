@@ -8,6 +8,7 @@ const CreatorEnum = z.enum([
   "Black Forest Labs",
   "fal",
   "ByteDance Seed",
+  "Kling AI",
 ]);
 const ModalityEnum = z.enum(["text", "image", "video", "audio", "3d", "pdf"]);
 const AccessTypeEnum = z.enum(["api", "web app", "discord", "local"]);
