@@ -4,10 +4,12 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "models/**" # only run if data changes
-      - "tweets/**" # or if tweets change
-      - "descriptions/**" # or if descriptions change
-      - "scripts/**" # or if the build script changes
+      - "models/**"
+      - "tweets/**"
+      - "descriptions/**"
+      - "scripts/**"
+      - "models avatars/**"
+      - "providers api endpoints/**"
 
   # allow running manually from the actions tab
   workflow_dispatch:
