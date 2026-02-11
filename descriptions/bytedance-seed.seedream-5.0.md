@@ -1,1 +1,3 @@
-available on [Dreamina](https://dreamina.capcut.com/ai-tool/generate?type=image)
+- Available on [Dreamina](https://dreamina.capcut.com/ai-tool/generate?type=image)
+- [Seedream 5.0-Preview Test: An image model that does web search during generation](https://news.ycombinator.com/item?id=46970509)
+- [Seedream 5.0-Preview just dropped — and it can Google stuff while generating your image. Better than Nano Banana Pro?](https://www.reddit.com/r/GeminiAI/comments/1r0c6tv/seedream_50preview_just_dropped_and_it_can_google/)
