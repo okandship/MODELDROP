@@ -8,6 +8,8 @@ const ProviderApiEndpointsSchema = z.object({
   any: z.string().optional(),
   "text to image": z.string().optional(),
   "image to image": z.string().optional(),
+  "text to video": z.string().optional(),
+  "image to video": z.string().optional(),
 });
 type ProviderApiEndpoints = z.output<typeof ProviderApiEndpointsSchema>;
 type ProvidersApiEndpoints = Record<string, ProviderApiEndpoints>;
