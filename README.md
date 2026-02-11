@@ -20,29 +20,29 @@ Model data lives in markdown files parsed with [H3KV](https://github.com/okandsh
 
 ```markdown
 ### id
-qwen.qwen-image-max
+bytedance-seed.seedream-4.5
 
 ### main modality
 - image
 
 ### creator
-Qwen
+ByteDance Seed
 
 ### name
-Qwen Image Max
+Seedream 4.5
 
 ### release date
-2026-02-10
+2025-12-03
 ```
 
 Provider API endpoints map model IDs to provider-specific identifiers:
 
 ```markdown
 ### text to image
-fal-ai/qwen-image-max/text-to-image
+fal-ai/bytedance/seedream/v4.5/text-to-image
 
 ### image to image
-fal-ai/qwen-image-max/edit
+fal-ai/bytedance/seedream/v4.5/edit
 ```
 
 ## Using the data

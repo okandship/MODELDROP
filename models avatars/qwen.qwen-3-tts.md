@@ -1,14 +1,14 @@
 ### item
 
-Runed Hand Bell
+Rune-etched hand bell
 
 ### material
 
-Obsidian Sand
+Sunbaked brass
 
 ### reasoning
 
-Qwen 3 TTS is an audio model, so a bell fits speech/resonance; medium size maps to a substantial but wieldable instrument. A Desert Djinn Scribe can comfortably carry and ring a runed hand bell like a spoken incantation, while 'Obsidian Sand' conveys mid-tier mystic power with a desert-alchemical texture that matches the djinn’s domain and the model’s voice-crafting nature.
+Qwen 3 TTS is a medium audio model, so a handheld instrument that conjures and shapes sound fits best; a rune-etched hand bell matches the spoken-voice focus of TTS and suits a Desert Djinn Scribe who would ring glyphic tones like incantations. Sunbaked brass evokes desert heat and a stronger, resonant power tier appropriate for a medium model.
 
 ### monster
 
@@ -142,11 +142,11 @@ https://modeldrop.shard.media/models/avatars/raw/qwen.qwen-3-tts.png
 
 ### avatar raw model
 
-fal-ai/qwen-image-max/text-to-image
+fal-ai/bytedance/seedream/v4.5/text-to-image
 
 ### avatar raw prompt
 
-Obsidian Sand Desert Djinn Scribe holding Runed Hand Bell
+Sunbaked brass Desert Djinn Scribe holding Rune-etched hand bell
 
 ### avatar url
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Desert Djinn Scribe holding Runed Hand Bell from image 1
+Desert Djinn Scribe holding Rune-etched hand bell from image 1
 
 dominant colors: Cobalt Blue, Sandstone Gold
 
