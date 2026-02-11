@@ -1,0 +1,4 @@
+- [blog](https://qwen.ai/blog?id=qwen-image-2.0)
+- [reddit](https://www.reddit.com/r/LocalLLaMA/comments/1r0w7st/qwenimage20_is_out_7b_unified_genedit_model_with/)
+- [hn](https://news.ycombinator.com/item?id=46957198)
+- [x](https://x.com/Alibaba_Qwen/status/2021137577311600949)
