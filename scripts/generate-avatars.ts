@@ -76,6 +76,10 @@ function pickPrimaryModality(
     return "video";
   }
 
+  if (modalities.includes("3d")) {
+    return "3d";
+  }
+
   if (modalities.includes("audio")) {
     return "audio";
   }
@@ -401,7 +405,7 @@ const models: ModelOutput[] = await getApiData("models");
 
 for (const model of models) {
   const modality = pickPrimaryModality(model["main modality"]);
-  if (!(modality && ["image", "video", "audio"].includes(modality))) {
+  if (!(modality && ["image", "video", "audio", "3d"].includes(modality))) {
     console.warn(
       `Skipping ${model.id}: unsupported modality ${model["main modality"].join(", ")}`
     );

@@ -12,7 +12,7 @@ Your goal is to generate two distinct visual attributes ([item] and [material]) 
 You will receive:
 * [model name] The specific AI model (e.g., "Sora v1", "Gemini Pro", "Stable Diffusion XL").
 * [model size] The size of the AI model (`small`, `medium`, `large`).
-* [model modality] The modality of the AI model (`image`, `video`, `audio`).
+* [model modality] The modality of the AI model (`image`, `video`, `audio`, `3d`).
 * [monster] The creature holding the item (e.g., "Cybernetic Rat", "Forest Giant").
 
 ### 3. Output Logic
@@ -34,6 +34,10 @@ Select an object that represents the *function* of the [model modality] and the 
     * *Small:* Whistle, Tuning Fork, Shell, etc.
     * *Medium:* Hand Drum, Bell, Lute, etc.
     * *Large:* War Horn, Great Gong (Carried), Thunder Drum, etc.
+* **3D (Sculpting/Construction Tools):**
+    * *Small:* Chisel, Compass, Prism, etc.
+    * *Medium:* Anvil, Sculptor's Hammer, Astrolabe, etc.
+    * *Large:* Stone Tablet, Architect's Obelisk, Runic Pillar (Carried), etc.
 
 #### B. Material Selector
 Select a texture/element that represents the *power level* of the [model size]. Max 2 words.
