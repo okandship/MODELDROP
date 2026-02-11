@@ -1,38 +1,39 @@
 ### id
 
-hunyuan.hunyuan-3d-v3.1
+kling-ai.kling-video-3.0-omni
 
 ### main modality
 
-- 3d
+- video
 
 ### edition
 
-standard
+max
 
 ### creator
 
-Hunyuan
+Kling AI
 
 ### name
 
-Hunyuan 3D v3.1
+Kling VIDEO 3.0 Omni
 
 ### family
 
-Hunyuan
+Kling
 
 ### version
 
-3.1
+3.0
 
 ### variant
 
-- 3D
+- VIDEO
+- Omni
 
 ### release date
 
-2026-01-27
+2026-02-04
 
 ### is preview release
 

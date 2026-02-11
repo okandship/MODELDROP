@@ -14,7 +14,7 @@ const CreatorEnum = z.enum([
   "Qwen",
   "MiniMax",
   "Vidu",
-  "Hunyuan",
+  "Tencent HY",
   "xAI",
   "Lightricks",
   "PixVerse",

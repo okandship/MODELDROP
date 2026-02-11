@@ -1,6 +1,6 @@
 ### id
 
-kling-ai.kling-image-v3
+kling-ai.kling-image-3.0-omni
 
 ### main modality
 
@@ -8,7 +8,7 @@ kling-ai.kling-image-v3
 
 ### edition
 
-standard
+max
 
 ### creator
 
@@ -16,7 +16,7 @@ Kling AI
 
 ### name
 
-Kling Image V3
+Kling IMAGE 3.0 Omni
 
 ### family
 
@@ -24,11 +24,12 @@ Kling
 
 ### version
 
-3
+3.0
 
 ### variant
 
-- Image
+- IMAGE
+- Omni
 
 ### release date
 

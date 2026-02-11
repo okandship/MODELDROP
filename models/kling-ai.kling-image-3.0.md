@@ -1,14 +1,14 @@
 ### id
 
-kling-ai.kling-omni-3
+kling-ai.kling-image-3.0
 
 ### main modality
 
-- video
+- image
 
 ### edition
 
-max
+standard
 
 ### creator
 
@@ -16,7 +16,7 @@ Kling AI
 
 ### name
 
-Kling Omni 3
+Kling IMAGE 3.0
 
 ### family
 
@@ -24,11 +24,11 @@ Kling
 
 ### version
 
-3
+3.0
 
 ### variant
 
-- Omni
+- IMAGE
 
 ### release date
 

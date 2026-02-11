@@ -1,3 +1,3 @@
-### video to video
+### any
 
 fal-ai/bytedance/dreamactor/v2

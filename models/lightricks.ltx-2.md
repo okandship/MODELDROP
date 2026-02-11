@@ -1,6 +1,6 @@
 ### id
 
-bytedance-seed.dreamactor-v2
+lightricks.ltx-2
 
 ### main modality
 
@@ -12,15 +12,15 @@ standard
 
 ### creator
 
-ByteDance Seed
+Lightricks
 
 ### name
 
-DreamActor v2
+LTX-2
 
 ### family
 
-DreamActor
+LTX
 
 ### version
 
@@ -28,7 +28,7 @@ DreamActor
 
 ### release date
 
-2026-02-06
+2026-01-06
 
 ### is preview release
 

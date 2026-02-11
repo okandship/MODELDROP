@@ -1,10 +1,10 @@
 ### id
 
-lightricks.ltx-2-19b
+tencent-hy.hunyuan-image-3.0-instruct
 
 ### main modality
 
-- video
+- image
 
 ### edition
 
@@ -12,23 +12,27 @@ standard
 
 ### creator
 
-Lightricks
+Tencent HY
 
 ### name
 
-LTX-2 19B
+Hunyuan Image 3.0 Instruct
 
 ### family
 
-LTX
+Hunyuan
 
 ### version
 
-2
+3.0
+
+### variant
+
+- Instruct
 
 ### release date
 
-2026-01-06
+2026-01-26
 
 ### is preview release
 

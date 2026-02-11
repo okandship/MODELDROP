@@ -1,10 +1,10 @@
 ### id
 
-hunyuan.hunyuan-image-3.0-instruct
+tencent-hy.hunyuan-3d-3.1
 
 ### main modality
 
-- image
+- 3d
 
 ### edition
 
@@ -12,11 +12,11 @@ standard
 
 ### creator
 
-Hunyuan
+Tencent HY
 
 ### name
 
-Hunyuan Image 3.0 Instruct
+Hunyuan 3D 3.1
 
 ### family
 
@@ -24,15 +24,15 @@ Hunyuan
 
 ### version
 
-3.0
+3.1
 
 ### variant
 
-- Instruct
+- 3D
 
 ### release date
 
-2026-01-26
+2026-01-27
 
 ### is preview release
 

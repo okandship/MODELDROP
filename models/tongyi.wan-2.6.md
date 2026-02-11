@@ -4,6 +4,7 @@ tongyi.wan-2.6
 
 ### main modality
 
+- image
 - video
 
 ### edition

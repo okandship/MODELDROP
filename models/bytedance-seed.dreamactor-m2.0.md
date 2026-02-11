@@ -1,39 +1,34 @@
 ### id
 
-kling-ai.kling-omni-3-image
+bytedance-seed.dreamactor-m2.0
 
 ### main modality
 
-- image
+- video
 
 ### edition
 
-max
+standard
 
 ### creator
 
-Kling AI
+ByteDance Seed
 
 ### name
 
-Kling Omni 3 Image
+DreamActor M2.0
 
 ### family
 
-Kling
+DreamActor
 
 ### version
 
-3
-
-### variant
-
-- Omni
-- Image
+2.0
 
 ### release date
 
-2026-02-04
+2026-02-06
 
 ### is preview release
 
