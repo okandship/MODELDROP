@@ -4,41 +4,80 @@
 
 <img width="1200" height="630" alt="opengraph-image" src="https://github.com/user-attachments/assets/011e4619-6dd6-4d91-b190-b01e5d400f17" />
 
-> open data repository for generative media AI models metadata + providers API endpoints.
-
-## What's in here
+**Open data for generative AI models.** Structured metadata, provider API endpoints, and generated avatars for image, video, audio, and 3D models — all public domain.
 
 ```
-models/                      # Model definitions (markdown with structured data)
-avatars/                     # Generated models avatars metadata (used by modeldrop.fyi)
-providers api endpoints/     # API endpoints names per model per provider
+curl -s https://data.modeldrop.fyi/api/models.json | jq '.[0]'
 ```
 
-## Model ID format
+## Why
 
-Models IDs use the format `<creator-slug>.<model-slug>`. Generate one with:
+There's no single source of truth for generative media model metadata. Model names, capabilities, and API endpoints are scattered across provider docs, blog posts, and social media. MODELDROP collects this into version-controlled, machine-readable data that anyone can use.
 
-```bash
-bun run scripts/get-model-id.ts "Google DeepMind" "Gemini 2.5 Flash Image"
-# google-deepmind.gemini-2.5-flash-image
+## Data format
+
+Model data lives in markdown files parsed with [H3KV](https://github.com/okandship/H3KV). Human-readable, git-diffable, and trivially parseable:
+
+```markdown
+### id
+qwen.qwen-image-max
+
+### main modality
+- image
+
+### creator
+Qwen
+
+### name
+Qwen Image Max
+
+### release date
+2026-02-10
 ```
 
-Each model file is markdown with structured key-value data, parsed using [H3KV](https://github.com/okandship/H3KV).
+Provider API endpoints map model IDs to provider-specific identifiers:
+
+```markdown
+### text to image
+fal-ai/qwen-image-max/text-to-image
+
+### image to image
+fal-ai/qwen-image-max/edit
+```
 
 ## Using the data
 
-The built API is available at:
+**Public API** — no auth, no rate limits:
+
 ```
 https://data.modeldrop.fyi/api/models.json
 ```
 
-Or access the raw markdown files directly from the `models/` directory.
+**Raw files** — clone the repo and read directly from `models/` and `providers api endpoints/`.
+
+**Model ID format** — `<creator-slug>.<model-slug>`:
+
+```bash
+bun run scripts/get-model-id.ts "Black Forest Labs" "FLUX.2 [dev]"
+# black-forest-labs.flux.2-dev
+```
+
+## Repository structure
+
+```
+models/                        Model definitions (markdown)
+providers api endpoints/       API endpoint mappings per model per provider
+avatars/                       Generated avatar metadata
+prompts/                       Avatar generation prompt templates
+schemas/                       Zod validation schemas
+scripts/                       Build, generation, and maintenance scripts
+```
 
 ## Contributing
 
-The easiest way to add a model is through the [issue form](https://github.com/okandship/MODELDROP/issues/new?template=add-model.yml).
+**Fastest way** — submit through the [issue form](https://github.com/okandship/MODELDROP/issues/new?template=add-model.yml). A curator reviews and merges.
 
-For other contributions, see [CONTRIBUTING.md](CONTRIBUTING.md).
+**Direct PRs** — see [CONTRIBUTING.md](CONTRIBUTING.md) for file naming conventions and data format.
 
 ## Community
 
@@ -47,4 +86,4 @@ For other contributions, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-[CC0 1.0 Universal](LICENSE) - Public Domain
+[CC0 1.0 Universal](LICENSE) — public domain. Use the data however you want.
