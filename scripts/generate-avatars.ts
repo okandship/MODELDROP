@@ -253,9 +253,11 @@ function findClosestImageEndpoint(
   model: ModelOutput,
   allModels: ModelOutput[]
 ): string | undefined {
-  const ownEndpoint = findFalTextToImageEndpoint(model);
-  if (ownEndpoint) {
-    return ownEndpoint;
+  if (model["main modality"].includes("image")) {
+    const ownEndpoint = findFalTextToImageEndpoint(model);
+    if (ownEndpoint) {
+      return ownEndpoint;
+    }
   }
 
   const imageModels = allModels.filter(
