@@ -1,14 +1,14 @@
 ### item
 
-Runescript Longsword
+Runebound Longsword-Brush
 
 ### material
 
-Sunfire Glass
+Astral Sandstone
 
 ### reasoning
 
-Qwen Image 2.0 is a medium image model, so a mid-scale weapon suits it; a longsword evokes precise image-making as decisive, clean strokes. As a Desert Djinn Scribe, the monster would wield a blade etched like flowing calligraphy, fitting the model name’s scholarly vibe. Sunfire Glass signals medium-tier power with a desert-born, luminous texture that complements a djinn’s arcane heat and mirage aesthetics.
+Qwen Image 2.0 (image, medium) maps to a versatile mid-tier weapon; a longsword fits the scale while a brush-like edge reflects image-making. A Desert Djinn Scribe can wield it one- or two-handed like a calligrapher’s blade. Astral Sandstone suggests empowered, desert-born magic appropriate to a medium model’s potency and retro dark-fantasy vibe.
 
 ### monster
 
@@ -146,7 +146,7 @@ fal-ai/qwen-image-2512
 
 ### avatar raw prompt
 
-Sunfire Glass Desert Djinn Scribe holding Runescript Longsword
+Astral Sandstone Desert Djinn Scribe holding Runebound Longsword-Brush
 
 ### avatar url
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Desert Djinn Scribe holding Runescript Longsword from image 1
+Desert Djinn Scribe holding Runebound Longsword-Brush from image 1
 
 dominant colors: Cobalt Blue, Sandstone Gold
 

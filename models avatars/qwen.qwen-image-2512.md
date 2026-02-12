@@ -1,14 +1,14 @@
 ### item
 
-Runed Scimitar-Brush
+Runed Longsword Quill
 
 ### material
 
-Starglass
+Astral Sandstone
 
 ### reasoning
 
-Qwen Image 2512 (image modality) suggests a tool that ‘paints’ reality; at medium size it becomes a substantial one-handed implement. A Desert Djinn Scribe can elegantly wield a scimitar-shaped brush, mixing martial flair with calligrapher craft in a retro dark-fantasy pixel RPG vibe. Starglass conveys medium-tier arcane potency—celestial, desert-born sheen without being overpoweringly cosmic.
+Qwen Image 2512 (medium, image) fits a solid weapon-scale tool for shaping visions, so a longsword fused with a quill symbolizes painting imagery through ink-like runes. A Desert Djinn Scribe can wield it as a ceremonial, one-or-two-handed blade used to 'write' scenes in the air. Astral Sandstone reflects medium-tier power with desert mysticism, giving the pixel dark-fantasy texture of sun-baked stone shot through star-lit grit.
 
 ### monster
 
@@ -146,7 +146,7 @@ fal-ai/qwen-image-2512
 
 ### avatar raw prompt
 
-Starglass Desert Djinn Scribe holding Runed Scimitar-Brush
+Astral Sandstone Desert Djinn Scribe holding Runed Longsword Quill
 
 ### avatar url
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Desert Djinn Scribe holding Runed Scimitar-Brush from image 1
+Desert Djinn Scribe holding Runed Longsword Quill from image 1
 
 dominant colors: Cobalt Blue, Sandstone Gold
 
