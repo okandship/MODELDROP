@@ -1,2 +1,3 @@
 - Seems available [here](https://jimeng.jianying.com/ai-tool/home?type=video)
 - [official page](https://seed.bytedance.com/en/seedance2_0)
+- [blog](https://seed.bytedance.com/en/blog/seedance-2-0-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83)
