@@ -29,3 +29,6 @@ Seedance
 ### is preview release
 
 false
+
+### release date
+2026-02-12
