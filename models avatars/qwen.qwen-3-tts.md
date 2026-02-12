@@ -1,14 +1,14 @@
 ### item
 
-Rune-etched hand bell
+Runescribed Hand Bell
 
 ### material
 
-Sunbaked brass
+Ectoplasmic Gold
 
 ### reasoning
 
-Qwen 3 TTS is a medium audio model, so a handheld instrument that conjures and shapes sound fits best; a rune-etched hand bell matches the spoken-voice focus of TTS and suits a Desert Djinn Scribe who would ring glyphic tones like incantations. Sunbaked brass evokes desert heat and a stronger, resonant power tier appropriate for a medium model.
+Qwen 3 TTS is an audio model, so a bell symbolizes controlled voice and resonance; as a medium model, a hand-held but weighty ritual bell fits the scale. A Desert Djinn Scribe can easily wield it one-handed while ‘writing’ sound through runes, and ectoplasmic gold matches a djinn’s supernatural power with a retro dark-fantasy sheen.
 
 ### monster
 
@@ -142,11 +142,11 @@ https://modeldrop.shard.media/models/avatars/raw/qwen.qwen-3-tts.png
 
 ### avatar raw model
 
-fal-ai/bytedance/seedream/v4.5/text-to-image
+fal-ai/qwen-image-2512
 
 ### avatar raw prompt
 
-Sunbaked brass Desert Djinn Scribe holding Rune-etched hand bell
+Ectoplasmic Gold Desert Djinn Scribe holding Runescribed Hand Bell
 
 ### avatar url
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Desert Djinn Scribe holding Rune-etched hand bell from image 1
+Desert Djinn Scribe holding Runescribed Hand Bell from image 1
 
 dominant colors: Cobalt Blue, Sandstone Gold
 

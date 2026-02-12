@@ -1,14 +1,14 @@
 ### item
 
-Runescript Longsword
+Runed Scimitar-Brush
 
 ### material
 
-Sunfire Glass
+Starglass
 
 ### reasoning
 
-Qwen Image 2.0 is a medium image model, so a mid-scale weapon suits it; a longsword evokes precise image-making as decisive, clean strokes. As a Desert Djinn Scribe, the monster would wield a blade etched like flowing calligraphy, fitting the model name’s scholarly vibe. Sunfire Glass signals medium-tier power with a desert-born, luminous texture that complements a djinn’s arcane heat and mirage aesthetics.
+Qwen Image 2512 (image modality) suggests a tool that ‘paints’ reality; at medium size it becomes a substantial one-handed implement. A Desert Djinn Scribe can elegantly wield a scimitar-shaped brush, mixing martial flair with calligrapher craft in a retro dark-fantasy pixel RPG vibe. Starglass conveys medium-tier arcane potency—celestial, desert-born sheen without being overpoweringly cosmic.
 
 ### monster
 
@@ -16,11 +16,11 @@ Desert Djinn Scribe
 
 ### model id
 
-qwen.qwen-image-2.0
+qwen.qwen-image-2512
 
 ### model name
 
-Qwen Image 2.0
+Qwen Image 2512
 
 ### model size
 
@@ -128,7 +128,7 @@ Return ONLY the JSON object.
 
 ### generation prompt
 
-model name: Qwen Image 2.0
+model name: Qwen Image 2512
 
 model size: medium
 
@@ -138,7 +138,7 @@ monster: Desert Djinn Scribe
 
 ### avatar raw url
 
-https://modeldrop.shard.media/models/avatars/raw/qwen.qwen-image-2.0.png
+https://modeldrop.shard.media/models/avatars/raw/qwen.qwen-image-2512.png
 
 ### avatar raw model
 
@@ -146,11 +146,11 @@ fal-ai/qwen-image-2512
 
 ### avatar raw prompt
 
-Sunfire Glass Desert Djinn Scribe holding Runescript Longsword
+Starglass Desert Djinn Scribe holding Runed Scimitar-Brush
 
 ### avatar url
 
-https://modeldrop.shard.media/models/avatars/qwen.qwen-image-2.0.png
+https://modeldrop.shard.media/models/avatars/qwen.qwen-image-2512.png
 
 ### avatar styleUrl
 
@@ -162,7 +162,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 
 ### avatar prompt
 
-Desert Djinn Scribe holding Runescript Longsword from image 1
+Desert Djinn Scribe holding Runed Scimitar-Brush from image 1
 
 dominant colors: Cobalt Blue, Sandstone Gold
 
