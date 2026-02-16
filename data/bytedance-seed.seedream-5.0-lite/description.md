@@ -1,0 +1,1 @@
+- [official page](https://seed.bytedance.com/en/seedream5_0_lite)
