@@ -16,8 +16,8 @@ If you notice incorrect data or want to suggest improvements:
 
 If you're submitting a PR directly:
 
-1. Model files go in `models/` with the filename format `<creator-slug>.<model-slug>.md`
-2. Provider endpoints go in `providers api endpoints/<model-id>/<provider>.md`
+1. Model core files go in `data/<model-id>/core.md`
+2. Provider endpoints go in `data/<model-id>/providers api endpoints/<provider>.md`
 3. Follow the existing data format (markdown with key-value pairs) - see `schemas/model.ts` for the schema definition
 
 ## Model ID format

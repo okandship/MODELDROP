@@ -1,6 +1,7 @@
-import { appendFile } from "node:fs/promises";
+import { appendFile, mkdir } from "node:fs/promises";
 import { dataObjectToMarkdown, markdownToDataObject } from "@okandship/h3kv";
 import { ModelCoreSchema } from "../schemas/model";
+import { getCorePath, getDataDirPath } from "./data-paths";
 
 const inputMarkdown = Bun.env.ISSUE_BODY;
 
@@ -16,7 +17,8 @@ if (!(model.id && model.name)) {
   process.exit(1);
 }
 
-const modelPath = `models/${model.id}.md`;
+const modelDirPath = getDataDirPath(model.id);
+const modelPath = getCorePath(model.id);
 
 if (await Bun.file(modelPath).exists()) {
   console.error(
@@ -27,6 +29,7 @@ if (await Bun.file(modelPath).exists()) {
 
 const outputMarkdown = dataObjectToMarkdown(model, ModelCoreSchema);
 
+await mkdir(modelDirPath, { recursive: true });
 await Bun.write(modelPath, outputMarkdown);
 console.log(`successfully created ${modelPath}`);
 

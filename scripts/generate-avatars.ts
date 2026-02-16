@@ -5,6 +5,7 @@ import { z } from "zod";
 import { getCreatorId, type ModelCoreSchema } from "../schemas/model";
 import { getApiData, readPrompt, requireEnv, withPrefix } from "../utils";
 import type { ModelOutput } from "./build-api";
+import { getAvatarPath } from "./data-paths";
 
 const CreatorAvatarIdentitySchema = z.object({
   monster: z.string(),
@@ -98,7 +99,7 @@ async function getCreatorAvatarIdentity(
   name: string
 ): Promise<z.output<typeof CreatorAvatarIdentitySchema>> {
   const id = getCreatorId(name);
-  const cache = Bun.file(`models avatars/${id}.md`);
+  const cache = Bun.file(getAvatarPath(id));
 
   if (await cache.exists()) {
     return markdownToDataObject(
@@ -169,7 +170,7 @@ async function getModelAvatarIdentity(
   modality: string,
   monster: string
 ): Promise<z.output<typeof ModelAvatarIdentitySchema>> {
-  const cache = Bun.file(`models avatars/${id}.md`);
+  const cache = Bun.file(getAvatarPath(id));
 
   if (await cache.exists()) {
     return markdownToDataObject(await cache.text(), ModelAvatarIdentitySchema);
@@ -297,7 +298,7 @@ async function createModelAvatar(
   material: string,
   falTextToImageEndpoint: string | undefined
 ): Promise<string | undefined> {
-  const cache = Bun.file(`models avatars/${modelId}.md`);
+  const cache = Bun.file(getAvatarPath(modelId));
 
   if (!(await cache.exists())) {
     console.warn(
@@ -368,7 +369,7 @@ async function restyleModelAvatar(
   item: string,
   palette: string[]
 ): Promise<string | undefined> {
-  const cache = Bun.file(`models avatars/${modelId}.md`);
+  const cache = Bun.file(getAvatarPath(modelId));
 
   if (!(await cache.exists())) {
     console.warn(`No identity cache for ${modelId}, skipping avatar restyling`);

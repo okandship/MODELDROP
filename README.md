@@ -53,7 +53,7 @@ fal-ai/bytedance/seedream/v4.5/edit
 https://data.modeldrop.fyi/api/models.json
 ```
 
-**Raw files** — clone the repo and read directly from `models/` and `providers api endpoints/`.
+**Raw files** — clone the repo and read directly from `data/` (for example `data/<model-id>/core.md` and `data/<model-id>/providers api endpoints/*.md`).
 
 **Model ID format** — `<creator-slug>.<model-slug>`:
 
@@ -65,9 +65,7 @@ bun run scripts/get-model-id.ts "Black Forest Labs" "FLUX.2 [dev]"
 ## Repository structure
 
 ```
-models/                        Model definitions (markdown)
-providers api endpoints/       API endpoint mappings per model per provider
-avatars/                       Generated avatar metadata
+data/                          Per-ID folders for models and creators (core, description, providers, avatar, tweets)
 prompts/                       Avatar generation prompt templates
 schemas/                       Zod validation schemas
 scripts/                       Build, generation, and maintenance scripts

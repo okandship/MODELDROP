@@ -1,8 +1,15 @@
-import { exists, mkdir } from "node:fs/promises";
+import { exists, mkdir, rm } from "node:fs/promises";
 import path from "node:path";
 import { markdownToDataObject } from "@okandship/h3kv";
 import { z } from "zod";
 import { ModelCoreSchema } from "../schemas/model";
+import {
+  DATA_DIR,
+  getAvatarPath,
+  getDescriptionPath,
+  getProvidersApiEndpointsDirPath,
+  getTweetsPath,
+} from "./data-paths";
 
 const ProviderApiEndpointsSchema = z.object({
   any: z.string().optional(),
@@ -54,7 +61,7 @@ export type ModelOutput = z.output<typeof ModelCoreSchema> & {
 async function loadProvidersApiEndpoints(
   modelId: string
 ): Promise<ProvidersApiEndpoints | undefined> {
-  const dirPath = `providers api endpoints/${modelId}`;
+  const dirPath = getProvidersApiEndpointsDirPath(modelId);
 
   if (!(await exists(dirPath))) {
     return;
@@ -81,7 +88,7 @@ async function loadProvidersApiEndpoints(
 }
 
 async function hasGeneratedAvatar(modelId: string): Promise<boolean> {
-  const avatarPath = `models avatars/${modelId}.md`;
+  const avatarPath = getAvatarPath(modelId);
 
   if (!(await exists(avatarPath))) {
     return false;
@@ -94,39 +101,64 @@ async function hasGeneratedAvatar(modelId: string): Promise<boolean> {
   return typeof avatarUrl === "string" && avatarUrl.trim().length > 0;
 }
 
-async function loadTweets(): Promise<Record<string, string[]>> {
-  const tweets: Record<string, string[]> = {};
-  const glob = new Bun.Glob("tweets/*.md");
+async function loadModelTweets(modelId: string): Promise<string[] | undefined> {
+  const tweetsPath = getTweetsPath(modelId);
+  const tweetsFile = Bun.file(tweetsPath);
 
-  for await (const filePath of glob.scan()) {
-    const modelId = path.parse(filePath).name;
-    const content = await Bun.file(filePath).text();
-    const data = markdownToDataObject(content, TweetsSchema);
-
-    if (data.tweets.length) {
-      tweets[modelId] = data.tweets;
-    }
+  if (!(await tweetsFile.exists())) {
+    return;
   }
 
-  return tweets;
+  const data = markdownToDataObject(await tweetsFile.text(), TweetsSchema);
+  return data.tweets.length ? data.tweets : undefined;
+}
+
+async function loadModelDescription(
+  modelId: string
+): Promise<string | undefined> {
+  const descriptionPath = getDescriptionPath(modelId);
+  const descriptionFile = Bun.file(descriptionPath);
+
+  if (!(await descriptionFile.exists())) {
+    return;
+  }
+
+  return await descriptionFile.text();
 }
 
 const models: ModelOutput[] = [];
+const tweets: Record<string, string[]> = {};
+const descriptions: Record<string, string> = {};
 
-const glob = new Bun.Glob("models/*.md");
+const glob = new Bun.Glob(path.join(DATA_DIR, "*/core.md"));
 
 console.log("🔮 scanning model files...");
 
 for await (const filePath of glob.scan()) {
+  const modelId = path.basename(path.dirname(filePath));
   const content = await Bun.file(filePath).text();
   const data = markdownToDataObject(content, ModelCoreSchema);
   const avatarGenerated = await hasGeneratedAvatar(data.id);
   const model: ModelOutput = { ...data, "avatar generated": avatarGenerated };
 
+  if (model.id !== modelId) {
+    throw new Error(`Model ID mismatch: ${model.id} !== ${modelId}`);
+  }
+
   const providersApiEndpoints = await loadProvidersApiEndpoints(model.id);
 
   if (providersApiEndpoints) {
     model["providers api endpoints"] = providersApiEndpoints;
+  }
+
+  const modelTweets = await loadModelTweets(model.id);
+  if (modelTweets) {
+    tweets[model.id] = modelTweets;
+  }
+
+  const modelDescription = await loadModelDescription(model.id);
+  if (modelDescription) {
+    descriptions[model.id] = modelDescription;
   }
 
   models.push(model);
@@ -157,7 +189,6 @@ await Bun.write(outputPath, JSON.stringify(models, null, 2));
 
 console.log(`👑 api built: ${models.length} models -> ${outputPath}`);
 
-const tweets = await loadTweets();
 const tweetsOutputPath = `${outputDir}/tweets.json`;
 await Bun.write(tweetsOutputPath, JSON.stringify(tweets, null, 2));
 
@@ -167,20 +198,15 @@ console.log(
 
 // build individual description files
 const descriptionsDir = `${outputDir}/descriptions`;
+await rm(descriptionsDir, { recursive: true, force: true });
 await mkdir(descriptionsDir, { recursive: true });
 
-const descriptionsGlob = new Bun.Glob("descriptions/*.md");
-let descriptionsCount = 0;
-
-for await (const filePath of descriptionsGlob.scan()) {
-  const modelId = path.parse(filePath).name;
-  const content = await Bun.file(filePath).text();
+for (const [modelId, content] of Object.entries(descriptions)) {
   const outputFile = `${descriptionsDir}/${modelId}.json`;
 
   await Bun.write(outputFile, JSON.stringify({ id: modelId, content }));
-  descriptionsCount++;
 }
 
 console.log(
-  `📝 descriptions built: ${descriptionsCount} models -> ${descriptionsDir}/`
+  `📝 descriptions built: ${Object.keys(descriptions).length} models -> ${descriptionsDir}/`
 );

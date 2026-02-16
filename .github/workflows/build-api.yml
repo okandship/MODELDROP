@@ -4,12 +4,8 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "models/**"
-      - "tweets/**"
-      - "descriptions/**"
+      - "data/**"
       - "scripts/**"
-      - "models avatars/**"
-      - "providers api endpoints/**"
 
   # allow running manually from the actions tab
   workflow_dispatch:

@@ -1,11 +1,13 @@
+import path from "node:path";
 import { S3Client } from "bun";
+import { CORE_FILENAME, DATA_DIR } from "./data-paths";
 
-// Collect valid model IDs from models/ directory
+// Collect valid model IDs from data/<model-id>/core.md files
 const modelIds = new Set<string>();
-const glob = new Bun.Glob("models/*.md");
+const glob = new Bun.Glob(path.join(DATA_DIR, "*", CORE_FILENAME));
 
 for await (const filePath of glob.scan()) {
-  const id = filePath.replace("models/", "").replace(".md", "");
+  const id = path.basename(path.dirname(filePath));
   modelIds.add(id);
 }
 
@@ -53,7 +55,10 @@ while (hasMore) {
 
   hasMore = result.isTruncated ?? false;
   if (hasMore && contents.length > 0) {
-    startAfter = contents[contents.length - 1].key;
+    const lastObject = contents.at(-1);
+    if (lastObject) {
+      startAfter = lastObject.key;
+    }
   }
 }
 
@@ -68,6 +73,7 @@ for (const key of orphans) {
 }
 
 // Prompt for confirmation
+// biome-ignore lint/suspicious/noAlert: This script is intentionally interactive.
 const answer = prompt("\nDelete these files from S3? (y/N)");
 
 if (answer?.toLowerCase() !== "y") {

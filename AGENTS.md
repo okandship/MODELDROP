@@ -5,10 +5,8 @@ Data repository for AI model metadata, provider API endpoints, and avatar genera
 ## Project Structure
 
 ```
-models/           # Model definition files (markdown with structured data)
-avatars/          # Generated avatar metadata for models and creators
+data/             # Per-ID folders for models and creators (core, description, providers, avatar, tweets)
 prompts/          # Prompt templates for avatar generation
-providers api endpoints/  # API endpoint configs per model per provider
 schemas/          # Zod schemas for data validation
 scripts/          # Build and generation scripts
 ```
@@ -29,8 +27,8 @@ bun run scripts/generate-avatars.ts # Generate avatar metadata for models
 
 ## Adding a Model
 
-1. Create `models/<creator-slug>.<model-slug>.md` with required fields from `ModelCoreSchema`
-2. Optionally add provider endpoints in `providers api endpoints/<model-id>/<provider>.md`
+1. Create `data/<model-id>/core.md` with required fields from `ModelCoreSchema`
+2. Optionally add provider endpoints in `data/<model-id>/providers api endpoints/<provider>.md`
 3. Run `bun run scripts/build-api.ts` to rebuild the API
 
 ## Environment Variables
