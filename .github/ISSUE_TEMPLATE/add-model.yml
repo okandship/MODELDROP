@@ -59,6 +59,7 @@ body:
         - xAI
         - Lightricks
         - PixVerse
+        - FireRed Team
     validations:
       required: true
 

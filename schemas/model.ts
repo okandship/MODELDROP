@@ -18,6 +18,7 @@ const CreatorEnum = z.enum([
   "xAI",
   "Lightricks",
   "PixVerse",
+  "FireRed Team",
 ]);
 const ModalityEnum = z.enum(["text", "image", "video", "audio", "3d", "pdf"]);
 const AccessTypeEnum = z.enum(["api", "web app", "discord", "local"]);
