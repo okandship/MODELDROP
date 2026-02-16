@@ -1,1 +1,2 @@
+- Available on [Dreamina](https://dreamina.capcut.com/ai-tool/generate?type=image)
 - [official page](https://seed.bytedance.com/en/seedream5_0_lite)
