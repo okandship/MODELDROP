@@ -1,0 +1,1 @@
+- [prompting guide (fal)](https://blog.fal.ai/kling-3-0-prompting-guide/)
