@@ -170,7 +170,7 @@ models.sort((a, b) => {
   const bDate = b["release date"];
 
   if (!(aDate || bDate)) {
-    return a.name.localeCompare(b.name);
+    return a.id.localeCompare(b.id);
   }
   if (!aDate) {
     return -1;
@@ -179,7 +179,12 @@ models.sort((a, b) => {
     return 1;
   }
 
-  return bDate.getTime() - aDate.getTime();
+  const dateDiff = bDate.getTime() - aDate.getTime();
+  if (dateDiff !== 0) {
+    return dateDiff;
+  }
+
+  return a.id.localeCompare(b.id);
 });
 
 const outputDir = "public/api";
